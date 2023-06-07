@@ -4,11 +4,10 @@ from binarytree import build
 
 searchBynaryTree = BinarySearchTree()
 
+values = []
+
 
 def carregar_arquivo():
-    searchBynaryTree = BinarySearchTree()
-
-    values = []
     with open("entrada.txt", "r") as entries:
         data = entries.readlines()
 
@@ -21,6 +20,7 @@ def carregar_arquivo():
     graph = build(values)
 
     print(graph)
+    print("\n")
 
     print("\nOpção 1 selecionada - Carregar o arquivo de nomes na ABB")
 
@@ -58,6 +58,13 @@ def remover_elemento():
     element_to_be_removed = input("Insira o elemento a ser removido: ")
 
     searchBynaryTree.remove(element_to_be_removed)
+
+    values.pop(values.index(element_to_be_removed))
+
+    graph = build(values)
+
+    print(graph)
+    print("\n")
     print("\nOpção 7 selecionada - Remover um elemento da árvore")
 
 

@@ -24,9 +24,6 @@ class BinarySearchTree:
     def remove(self, value):
         self.root = self.__remove_recursive(self.root, value)
 
-    def inorder_traversal(self):
-        self.__inorder_traversal_recursive(self.root)
-
     def print_tree(self):
         self.__print_tree_recursive(self.root, 0)
 
@@ -117,9 +114,9 @@ class BinarySearchTree:
     def __remove_recursive(self, node: Node, value):
         if node is None:
             return node
-        if int(value) < node.value:
+        if value < node.value:
             node.left = self.__remove_recursive(node.left, value)
-        elif int(value) > node.value:
+        elif value > node.value:
             node.right = self.__remove_recursive(node.right, value)
         else:
             if node.left is None:
